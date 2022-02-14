@@ -1,0 +1,51 @@
+<!-- uso do ng if para posicionar os resultados  conforme o a resposta da API -->
+<h1 class="center" *ngIf='resultFound()'>Current weather for {{currentWeather.name}}</h1>
+<table *ngIf='resultFound()'>
+  <tbody>
+    <tr>
+      <td>
+        <h3>Current Temperature:</h3>
+      </td>
+      <td>
+        <!--definição de como a varivel sera aprentada através desse number-->
+        <h3>{{currentWeather.main?.temp - 273.15 | number:'1.0-0'}}<sup>o</sup>C</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3>Clouds:</h3>
+      </td>
+      <td>
+        <h3>{{currentWeather.clouds?.all}}%</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3>Humidity</h3>
+      </td>
+      <td>
+        <h3>{{currentWeather.main?.humidity}}%</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3>Pressure</h3>
+      </td>
+      <td>
+        <h3>{{currentWeather.main?.pressure}}mb</h3>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h3>Visibility</h3>
+      </td>
+      <td>
+        <h3>{{currentWeather.visibility}}m</h3>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf='!resultFound()'>
+  <!--caso não obtenha resposta da API tera essa mensagem de falaha na obtenção do clima-->
+  <h1 class="center">{{msg || 'Failed to get weather.'}}</h1>
+</div>

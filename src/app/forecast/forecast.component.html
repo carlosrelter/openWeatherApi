@@ -1,0 +1,59 @@
+<div *ngIf='resultFound()'>
+  <!--mesmo processo ja descrito no current-Weather, com a diferença do uso do *ngfor ja que
+  se tratam de mais resultado vindos da API, de forecast (previsoes)-->
+  <h1 class="center">Current weather forecast for {{forecast.city?.name}}</h1>
+  <mat-card *ngFor='let l of forecast.list' class="mat-elevation-z18">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{l.dt*1000 | date:'MMM d, y, h:mm:ss a'}}</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <table *ngIf='resultFound()'>
+        <tbody>
+          <tr>
+            <td>Temperature</td>
+            <td>{{l.main?.temp - 273.15 | number:'1.0-0'}} ºC</td>
+          </tr>
+          <tr>
+            <td>Minimum Temperature</td>
+            <td>{{l.main?.temp_min - 273.15 | number:'1.0-0'}} ºC</td>
+          </tr>
+          <tr>
+            <td>Maximum Temperature</td>
+            <td>{{l.main?.temp_max - 273.15 | number:'1.0-0'}} ºC</td>
+          </tr>
+          <tr>
+            <td>Pressure</td>
+            <td>{{l.main?.pressure | number:'1.0-0'}}mb</td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td> {{l.main?.humidity | number:'1.0-0'}}%</td>
+          </tr>
+          <tr>
+            <td>Weather</td>
+            <td>
+              <ul>
+                <li *ngFor='let w of l.weather'>
+                  {{w?.main }}: {{w?.description }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Wind Speed</td>
+            <td>{{l.wind?.speed }}</td>
+          </tr>
+          <tr>
+            <td>Wind Direction</td>
+            <td>{{l.wind?.deg }}<sup>o</sup></td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf='!resultFound()'>
+  <h1 class="center">{{msg || 'Failed to get weather.'}}</h1>
+</div>

@@ -1,0 +1,45 @@
+#title{
+  margin-right: 30px;
+}
+.mat-form-field{
+  font-size: 13px;
+}
+.mat-button{
+  height: 33px;
+}
+.mat-toolbar{
+  background-color:#3b5998;
+  color: white;
+}
+.mat-error, .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element{
+  color: white !important;
+  border-bottom-color: white !important;
+}
+.mat-focused .placeholder{
+  color: white;
+}
+::ng-deep .form-field.mat-form-field-appearance-legacy .mat-form-field-underline,
+.form-field.mat-form-field-appearance-legacy .mat-form-field-ripple,
+.form-field.mat-form-field-appearance-legacy.mat-focused
+  .mat-form-field-underline,
+.form-field.mat-form-field-appearance-legacy.mat-focused
+  .mat-form-field-ripple {
+  background-color: white !important;
+  border-bottom-color: white !important;
+}
+/** Overrides label color **/
+::ng-deep .form-field.mat-form-field-appearance-legacy .mat-form-field-label,
+.form-field.mat-form-field-appearance-legacy.mat-focused
+  .mat-form-field-label {
+  color: white !important;
+  border-bottom-color: white !important;
+}
+/** Overrides caret & text color **/
+::ng-deep .form-field.mat-form-field-appearance-legacy .mat-input-element {
+  caret-color: white !important;
+  color: white !important;
+  border-bottom-color: white !important;
+}
+::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+  background-color: white !important;
+}

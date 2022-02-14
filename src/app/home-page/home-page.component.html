@@ -1,0 +1,18 @@
+<app-top-bar></app-top-bar>
+<div id="container">
+  <!--caso tenha não tenha informação-->
+  <div *ngIf="!loc" id="search">
+    <h1>Enter location to find weather info.</h1>
+  </div>
+  <!--caso tenha informação na buscador com a localização exibira tanto o
+    tempo atual quanto a previsão, lembrando que é visualizavel clicando, -->
+  <mat-tab-group *ngIf="loc">
+    <mat-tab label="Current Weather">
+      <app-current-weather></app-current-weather>
+    </mat-tab>
+    <mat-tab label="Forecast">
+      <app-forecast></app-forecast>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<!--tags usadas são do angular material-->
